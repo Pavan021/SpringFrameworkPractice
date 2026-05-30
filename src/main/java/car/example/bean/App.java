@@ -10,5 +10,7 @@ public class App {
         MyBean myBean = (MyBean) context.getBean("myBean");
 
         System.out.println(myBean);
+
+
     }
 }
