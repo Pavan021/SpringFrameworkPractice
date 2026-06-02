@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <bean id="userDatabaseProvider"  class="com.loose.coupling.UserDatabaseProvider"/>
+
+    <bean id="newDatabaseProvider"  class="com.loose.coupling.NewDatabaseProvider"/>
+
+    <bean id="webServiceDatabaseProvider"  class="com.loose.coupling.WebServiceDatabaseProvider"/>
+
+    <bean id="userManagerwithUserDB"  class="com.loose.coupling.UserManager">
+        <constructor-arg ref="userDatabaseProvider"/>
+    </bean>
+
+    <bean id="userManagerwithNewDB"  class="com.loose.coupling.UserManager">
+        <constructor-arg ref="newDatabaseProvider"/>
+    </bean>
+
+    <bean id="userManagerwithWebServiceDB"  class="com.loose.coupling.UserManager">
+        <constructor-arg ref="webServiceDatabaseProvider"/>
+    </bean>
+
+</beans>
